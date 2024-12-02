@@ -6,6 +6,8 @@
     <title>Exo PHP day 1</title>
 </head>
 <body>
+    <?php include('header.php')?>
+
      <p>Exercice 1</p>
         <?php 
             for ($i = 0; $i <= 25; $i++) {
@@ -42,30 +44,30 @@
     
     <p>Exercice 5</p>
         <?php 
-            $i = 2;
-            if($i % 2 == 0){
-                echo "C'est bien pair";
-            } else {
-             echo "Ce n'est pas ton père";
+            $i = 3;
+            function EstPair($i) {
+            return ($i % 2 == 0) ? true : false;
             }
+            echo (EstPair($i)) ? "C'est pair" : "Ce n'est pas pair";
         ?>
     
     <p>Exercice 6</p>
         <?php 
             for ($i = 0; $i <=20; $i++) {
-                if($i % 2 == 0){
-                    echo $i . ' ';
-                }
+               echo (EstPair($i)) ? $i : ' ';
             }
         ?>
     
     <p>Exercice 7</p>
         <?php 
+            function calcHypo($b, $c) {
+                $a = ($b * $b) + ($c * $c);
+                $a = sqrt($a);
+                return $a;
+            }
             $b = 10;
             $c = 10;
-            $a = ($b*$b) + ($c*$c);
-            $a = sqrt($a);
-            echo $a;
+            echo calcHypo($b, $c);
         ?>
 
     <p>Exercice 8</p>
@@ -160,15 +162,34 @@
         echo '</table>';
     ?>
 
+<?php include('footer.php')?>
+
+
 <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    header, footer {
+        background-color: black;
+        color: white;
+        padding: 20px;
+    }
+
+    
     
     p {
         font-weight: bold;
         text-decoration: underline;
+        margin-bottom: 20px;
+        margin-top: 15px;
     }
 
     table {
         border: 1px solid black;
+        margin: 20px;
     }
     
     td {
