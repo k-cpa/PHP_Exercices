@@ -345,6 +345,11 @@
     input[type=text] {
         margin: 10px;
     }
+
+    img {
+        max-width: 800px;
+        border-radius: 10px;
+    }
 </style>
 </body>
 </html>
