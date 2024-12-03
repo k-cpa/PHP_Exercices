@@ -295,11 +295,21 @@
         </form>
 
         <?php 
-            if (isset($_POST['submitImage'])) {
-                echo '<pre';
-                print_r($_FILES);
-                echo '</pre';
-                $target_dir = dirname
+            if (isset($_FILES['userFile'])) {
+                $fileName = $_FILES['userFile']['name'];
+                $tmpName = $_FILES['userFile']['tmp_name'];
+                $location = 'uploads/';
+
+                $imageFileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+                if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+                    echo "Veuillez choisir une image au format JPG, JPEG, PNG ou GIF !";
+                } else {
+                    $uniqueFileName = uniqid('Image_', true) . '.' . $imageFileType;
+                    move_uploaded_file($tmpName, $location.$uniqueFileName);
+                    echo '<h5>Votre image téléchargée<br>';
+                    echo '<img src="' . $location.$uniqueFileName . '" alt="Image téléchargée">';
+                }
             }
         ?>
     </div>
