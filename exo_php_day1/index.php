@@ -44,11 +44,11 @@
     
     <p>Exercice 5</p>
         <?php 
-            $i = 3;
+            $i = 2;
             function EstPair($i) {
             return ($i % 2 == 0) ? true : false;
             }
-            echo (EstPair($i)) ? "C'est pair" : "Ce n'est pas pair";
+            echo (EstPair($i)) ? "C'est pair" : "Ce n'est pas ton père";
         ?>
     
     <p>Exercice 6</p>
@@ -85,7 +85,7 @@
     <p>Exercice 9</p>
         <?php 
             $i = 3;
-            echo ($i % 2 == 0) ? "C'est bien pair" : "Ce n'est pas ton père";
+            echo (EstPair($i)) ? "C'est bien pair" : "Ce n'est pas ton père";
         ?>
 
     <p>Exercice 10</p>
@@ -141,6 +141,9 @@
             $numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         
             shuffle($numbers);
+            // asort garde l'index comme il était initialement. 
+            // sort donne un nouvel index aux valeurs ! 
+            // Bien faire attention en fonction de ce que l'on veut. 
             asort($numbers);
             foreach ($numbers as $number) {
                 echo $number . ' ';
