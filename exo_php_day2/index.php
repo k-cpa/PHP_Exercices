@@ -166,15 +166,17 @@
                 $n2 = $_POST['number2'];
                 $math = $_POST['math'];
 
-                if ($math == 'add') {
-                    echo $n1 + $n2;
-                } else if ($math == 'sub') {
-                    echo $n1 - $n2;
-                } else if ($math == 'multi') {
-                    echo $n1 * $n2;
-                } else if ($math == 'div') {
-                    echo ($n2 != 0) ? $n1 / $n2 : "On ne peut pas diviser par zéro";
-                }
+                $result = [];
+
+                switch($math) {
+                    case 'addition':
+                        $result = $n1 + $n2;
+                    case 'soustraction' : 
+                        $result = $n1 - $n2;
+                    case 'division' :
+                        ($n2 != 0) ? $result = $n1 / $n2 : "on ne peut pas diviser par zéro";
+                    case 'multiplication' :
+                        $result = $n1 * $n2;
             }
         ?>
     </div>
